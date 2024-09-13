@@ -31,8 +31,8 @@ const Cart = () => {
       }
       return item;
     });
+    setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    navigate("/cart");
   };
 
   const handleDec = (id) => {
@@ -45,18 +45,18 @@ const Cart = () => {
       }
       return item;
     });
+    setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    navigate("/cart");
   };
   const removeProduct = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    navigate("/cart");
   };
 
   const emptyCart = () => {
+    setCart([]);
     localStorage.setItem("cart", JSON.stringify([]));
-    navigate("/cart");
   };
 
   if (cart.length === 0)
